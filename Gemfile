@@ -21,6 +21,7 @@ gem 'jquery-rails', '2.0.0'
 # Test gems on Windows
 group :test do
   gem 'rspec-rails', '2.9.0'
+  gem 'ZenTest'
   gem 'capybara', '1.1.2'
   gem 'rb-fchange'
   gem 'rb-notifu'
