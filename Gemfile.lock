@@ -178,7 +178,7 @@ DEPENDENCIES
   factory_girl_rails
   guard-rspec
   guard-spork
-  jquery-rails (= 2.0.0)
+  jquery-rails
   libnotify
   pg (= 0.12.2)
   rails (= 3.2.2)
