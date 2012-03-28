@@ -7,7 +7,7 @@ gem 'bcrypt-ruby'
 group :development do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.9.0'
-#  gem 'guard-rspec'
+  gem 'guard-rspec'
 end
 
 # Gems used only for assets and not required
@@ -23,12 +23,14 @@ gem 'jquery-rails', '2.0.0'
 # Test gems on Windows
 group :test do
   gem 'rspec-rails', '2.9.0'
-  gem 'ZenTest'
+#  gem 'ZenTest'
   gem 'capybara', '1.1.2'
 #  gem 'rb-fchange'
 #  gem 'rb-notifu'
 #  gem 'win32console'
-#  gem 'guard-spork'
+  gem 'rb-inotify'
+  gem 'libnotify'
+  gem 'guard-spork'
   gem 'spork'
 end 
 
