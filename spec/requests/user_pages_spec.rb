@@ -12,6 +12,7 @@ describe "UserPages" do
   	describe "with invalid information" do
   		it "should not create a user" do
   			expect { click_button "Create my account" }.not_to change(User, :count)
+        page.should have_selector('li', text: "Password can't be blank")
   		end
   	end
 
