@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :signed_in_user, only: [:edit, :update]
 	def show
 		@user = User.find(params[:id])
 	end
@@ -33,4 +34,9 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  private
+    def signed_in_user
+      redirect_to signin_path, notice: "Please sign in." unless signed_in?
+    end
 end
