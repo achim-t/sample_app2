@@ -1,4 +1,5 @@
 require 'spec_helper'
+include UsersHelper
 
 describe User do
 	before do
@@ -101,4 +102,6 @@ describe User do
   	before { @user.password = @user.password_confirmation = "a" * 5 }
   	it { should_not be_valid }
   end
+
+
 end

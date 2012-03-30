@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+include UsersHelper
 describe "UserPages" do
   subject { page } 
 
