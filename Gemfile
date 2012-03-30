@@ -4,6 +4,9 @@ gem 'rails', '3.2.2'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'haml'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development do
   gem 'sqlite3', '1.3.5'
@@ -34,9 +37,13 @@ group :test do
   gem 'guard-spork'
   gem 'spork'
   gem 'factory_girl_rails'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
 end 
+
+group :test do
+  gem 'cucumber-rails'
+end
+
 
 group :production do
   gem 'pg', '0.12.2'
