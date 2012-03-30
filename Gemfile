@@ -34,9 +34,13 @@ group :test do
   gem 'guard-spork'
   gem 'spork'
   gem 'factory_girl_rails'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
 end 
+
+group :test do
+  gem 'cucumber-rails'
+end
+
 
 group :production do
   gem 'pg', '0.12.2'
