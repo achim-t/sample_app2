@@ -76,5 +76,20 @@ describe "Authentication" do
 				specify { response.should redirect_to root_path }
 			end
 		end
+
+		describe "as signed in user" do
+			let(:user) { FactoryGirl.create(:user) }
+			before { sign_in user }
+
+#			describe "visiting profile" do
+#				before { visit user_path(user) }
+#				it { should have_selector 'title', text: full_title(user.name) }
+
+				describe "look at about page" do
+					before { visit about_path }
+					it { should have_selector 'title', text: full_title("About") }
+				end
+#			end
+		end
 	end
 end
