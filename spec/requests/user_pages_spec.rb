@@ -14,6 +14,12 @@ describe "UserPages" do
   			expect { click_button "Create my account" }.not_to change(User, :count)
         page.should have_selector('li', text: "Password can't be blank")
   		end
+      describe "error messages" do
+        before { click_button "Create my account" }
+        it { should have_selector 'title', text: 'Sign up' }
+        it { should have_content 'error'  }
+        it { should have_content "Password confirmation can't be blank"}
+      end
   	end
 
   	describe "with valid information" do
