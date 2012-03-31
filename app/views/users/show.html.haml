@@ -10,4 +10,4 @@
 			%h3 Microposts (#{@user.microposts.count})
 			%ol.microposts
 				= render @microposts
-			will_paginate @microposts
+			= will_paginate @microposts
