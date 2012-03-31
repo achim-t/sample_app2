@@ -15,6 +15,8 @@ describe "UserPages" do
     describe "pagination" do
       before(:all) { 30.times { FactoryGirl.create(:user) } }
       after(:all) { User.delete_all }
+      let(:first_page) { User.paginate page: 1 }
+      let(:second_page) { User.paginate page: 2 }
 
       it { should have_link 'Next' }
       it { should have_link '2' }
@@ -26,6 +28,28 @@ describe "UserPages" do
       end
 
       it { should_not have_link 'delete' }
+
+      it "should list the first page of users" do
+        first_page.each do |user|
+          page.should have_selector 'li', text: user.name
+        end
+      end
+
+      it "should not list the second page of users" do
+        second_page.each do |user|
+          page.should_not have_selector 'li', text: user.name
+        end
+      end
+
+      describe "showing the second page" do
+        before { visit users_path(page: 2) }
+
+        it "should list the secord page of users" do
+          second_page.each do |user|
+            page.should have_selector 'li', text: user.name
+          end
+        end
+      end
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
@@ -39,6 +63,10 @@ describe "UserPages" do
           expect { click_link 'delete' }.to change(User, :count).by -1
         end
         it { should_not have_link 'delete', href: user_path(admin) }
+
+        it "should not be able to delete himself" do
+          expect { delete user_path(admin) }.not_to change(User, :count)
+        end
       end
     end
   end
@@ -124,7 +152,7 @@ describe "UserPages" do
         fill_in "Name", with: new_name
         fill_in "Email", with: new_email
         fill_in "Password", with: user.password
-        fill_in "Confirm Password", with: user.password
+        fill_in "Confirmation", with: user.password
         click_button "Save changes"
       end
 
