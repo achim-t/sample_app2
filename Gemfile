@@ -7,6 +7,7 @@ gem 'haml'
 gem 'faker'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'simplecov'
 
 group :development do
   gem 'sqlite3', '1.3.5'
