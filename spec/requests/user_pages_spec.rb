@@ -50,6 +50,11 @@ describe "UserPages" do
           end
         end
       end
+    end
+
+    describe "delete links" do
+
+      it { should_not have_link 'delete' }
 
       describe "as an admin user" do
         let(:admin) { FactoryGirl.create(:admin) }
