@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20120412001055) do
   end
 
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "follower_id"], :name => "index_relationships_on_follower_id_and_follower_id", :unique => true
+  add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
